@@ -16,10 +16,6 @@ try
     {
         var subtitle = new Subtitle();
 
-        if (int.TryParse(srtLines[i], out var lineNr))
-        {
-            subtitle.LineNr = lineNr;
-        }
         var times = srtLines[i + 1].Split(" --> ");
 
         subtitle.From  = TimeSpan.ParseExact(times[0], @"hh\:mm\:ss\,fff", null) + timeToMove;
