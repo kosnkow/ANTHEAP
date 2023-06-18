@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NipApi", "NipApi.csproj", "{A208AAD8-FB84-4EEE-8C4F-EE23A3559914}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subtitles", "..\Napisy\Subtitles.csproj", "{6639B4D3-B45B-4DDA-B51B-764F3A01052B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A208AAD8-FB84-4EEE-8C4F-EE23A3559914}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A208AAD8-FB84-4EEE-8C4F-EE23A3559914}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A208AAD8-FB84-4EEE-8C4F-EE23A3559914}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A208AAD8-FB84-4EEE-8C4F-EE23A3559914}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6639B4D3-B45B-4DDA-B51B-764F3A01052B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6639B4D3-B45B-4DDA-B51B-764F3A01052B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6639B4D3-B45B-4DDA-B51B-764F3A01052B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6639B4D3-B45B-4DDA-B51B-764F3A01052B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D3D60C4-2286-4624-B5A8-B6E95942FFB9}
+	EndGlobalSection
+EndGlobal
