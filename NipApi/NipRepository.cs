@@ -24,8 +24,11 @@ namespace NipApi
             {
                 while (reader.Read())
                 {
-                    if(reader.GetInt64(0) == nip)
+                    if (reader.GetInt64(0) == nip)
+                    {
+                        reader.Close();
                         return true;
+                    }
                 }
             }
 
