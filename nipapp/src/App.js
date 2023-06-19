@@ -7,7 +7,7 @@ function App() {
   const [noDataMessage, setNoDataMessage] = useState('');
 
   const handleSearch = () => {
-    fetch(variables.API_URL$ + nip)
+    fetch(variables.API_URL + nip)
       .then(response => response.json())
       .then(data => {
         if (data.nip === 0) {

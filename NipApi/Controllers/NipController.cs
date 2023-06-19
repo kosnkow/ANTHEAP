@@ -20,9 +20,9 @@ namespace NipApi.Controllers
         }
 
         [HttpGet("{nip}")]
-        public NipDetails Get(long nip)
+        public async Task<NipDetails> Get(long nip)
         {
-            var nipDetails = _wlapi.GetNipDetails(nip).GetAwaiter().GetResult();
+            var nipDetails = await _wlapi.GetNipDetails(nip);
 
             if (nipDetails.Nip == nip && !_nipRepository.NipExists(nip))
             {
