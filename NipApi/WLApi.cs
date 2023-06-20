@@ -14,7 +14,7 @@ namespace NipApi
             apiUrl = config.GetValue<string>("AppSettings:WLApiUrl");
         }
         
-        public async Task<NipDetails> GetNipDetails(long nip)
+        public async Task<NipDetails> GetNipDetailsAsync(long nip)
         {
             NipDetails nipDetails = new NipDetails();
 
@@ -66,6 +66,6 @@ namespace NipApi
 
     public interface IWLApi
     {
-        Task<NipDetails> GetNipDetails(long nip);
+        Task<NipDetails> GetNipDetailsAsync(long nip);
     }
 }

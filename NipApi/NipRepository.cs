@@ -13,12 +13,12 @@ namespace NipApi
             _con = new SqlConnection(config.GetConnectionString("NipDb"));
         }
 
-        public bool NipExists(long nip)
+        public async Task<bool> NipExistsAsync(long nip)
         {
             SqlCommand command = new SqlCommand("SELECT Nip FROM NipDetails;", _con);
-            _con.Open();
+            await _con.OpenAsync();
 
-            SqlDataReader reader = command.ExecuteReader();
+            SqlDataReader reader = await command.ExecuteReaderAsync();
 
             if (reader.HasRows)
             {
@@ -26,17 +26,17 @@ namespace NipApi
                 {
                     if (reader.GetInt64(0) == nip)
                     {
-                        reader.Close();
+                        await reader.CloseAsync();
                         return true;
                     }
                 }
             }
 
-            reader.Close();
+            await reader.CloseAsync();
             return false;
         }
 
-        public void Add(NipDetails nipDetails)
+        public async Task AddAsync(NipDetails nipDetails)
         {
             SqlCommand cmd = new SqlCommand();
             cmd.CommandType = CommandType.Text;
@@ -50,10 +50,10 @@ namespace NipApi
             cmd.Parameters.AddWithValue("@Pesel", nipDetails.Pesel);
             cmd.Parameters.AddWithValue("@RegistrationLegalDate", nipDetails.RegistrationLegalDate);
 
-            _con.Open();
-            cmd.ExecuteNonQuery();
+            await _con.OpenAsync();
+            await cmd.ExecuteNonQueryAsync();
 
-            List<string> accounts = new List<string>() ;
+            List<string> accounts = new List<string>();
 
             foreach (var account in nipDetails.AccountList)
             {
@@ -62,7 +62,7 @@ namespace NipApi
 
             cmd.CommandText = $"INSERT into Account (Nip, AccountNumber) VALUES {string.Join(",", accounts)}";
 
-            cmd.ExecuteNonQuery();
+            await cmd.ExecuteNonQueryAsync();
 
             _con.Close();
         }
@@ -70,8 +70,8 @@ namespace NipApi
 
     public interface INipRepository
     {
-        public void Add(NipDetails nipDetails);
+        public Task AddAsync(NipDetails nipDetails);
 
-        public bool NipExists(long nip);
+        public Task<bool> NipExistsAsync(long nip);
     }
 }

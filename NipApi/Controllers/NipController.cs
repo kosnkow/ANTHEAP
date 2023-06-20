@@ -24,9 +24,9 @@ namespace NipApi.Controllers
         {
             var nipDetails = await _wlapi.GetNipDetails(nip);
 
-            if (nipDetails.Nip == nip && !_nipRepository.NipExists(nip))
+            if (nipDetails.Nip == nip && !await _nipRepository.NipExistsAsync(nip))
             {
-                _nipRepository.Add(nipDetails);
+                await _nipRepository.AddAsync(nipDetails);
             }
             return nipDetails;
         }
