@@ -22,7 +22,7 @@ namespace NipApi.Controllers
         [HttpGet("{nip}")]
         public async Task<NipDetails> Get(long nip)
         {
-            var nipDetails = await _wlapi.GetNipDetails(nip);
+            var nipDetails = await _wlapi.GetNipDetailsAsync(nip);
 
             if (nipDetails.Nip == nip && !await _nipRepository.NipExistsAsync(nip))
             {

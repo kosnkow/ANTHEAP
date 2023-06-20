@@ -64,7 +64,7 @@ namespace NipApi
 
             await cmd.ExecuteNonQueryAsync();
 
-            _con.Close();
+            await _con.CloseAsync();
         }
     }
 
