@@ -26,13 +26,13 @@ namespace NipApi
                 {
                     if (reader.GetInt64(0) == nip)
                     {
-                        await reader.CloseAsync();
+                        await _con.CloseAsync();
                         return true;
                     }
                 }
             }
 
-            await reader.CloseAsync();
+            await _con.CloseAsync();
             return false;
         }
 
